@@ -14,6 +14,8 @@ namespace MauiAppJogoDaVelha
         {
             Button btn = (Button)sender;
 
+            btn.IsEnabled = false;
+
             if (vez == "X")
             {
                 btn.Text = "X";
@@ -24,7 +26,40 @@ namespace MauiAppJogoDaVelha
                 vez = "X";
             }
 
-        }
-    }
+            /* Verficando se o X ganhou na 1º linha */
+            if (btn10.Text == "X" && btn11.Text == "X" && btn12.Text == "X")
+            {
+                DisplayAlert("Parabéns!", "O X ganhou", "OK");
+                Zerar();
+            }
+        } // Fecha método
 
-}
+        void Zerar()
+        {
+            btn10.Text = "";
+            btn11.Text = "";
+            btn12.Text = "";
+
+            btn20.Text = "";
+            btn21.Text = "";
+            btn22.Text = "";
+
+            btn30.Text = "";
+            btn31.Text = "";
+            btn32.Text = "";
+
+            btn10.IsEnabled = true;
+            btn11.IsEnabled = true;
+            btn12.IsEnabled = true;
+
+            btn20.IsEnabled = true;
+            btn21.IsEnabled = true;
+            btn22.IsEnabled = true;
+
+            btn20.IsEnabled = true;
+            btn21.IsEnabled = true;
+            btn22.IsEnabled = true;
+        }
+
+    } // Fecha Classe
+} // Fecha Namespace
